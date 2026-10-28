@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --lb-linen: #F7F3E8;
+  --lb-pine: #2E3A33;
+  --lb-sage: #A9C0A6;
+  --lb-sage-mist: #DCE6D9;
+  --lb-butter: #F2D27A;
+  --lb-clay: #B5654A;
+  --lb-clay-deep: #A4553B;
+  --lb-ink-muted: #4A564E;
+  --lb-rule: #C9CFC4;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--lb-linen);
+  color: var(--lb-pine);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@layer components {
+  .accent {
+    @apply font-accent italic font-normal;
+  }
+  .eyebrow {
+    @apply text-sm font-bold uppercase tracking-[0.16em] text-clay-deep;
+  }
+}
