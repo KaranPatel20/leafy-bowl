@@ -56,7 +56,8 @@ export default function ExplodedBowl() {
   useEffect(() => {
     const stage = stageRef.current;
     if (!stage) return;
-    const wrap = stage.closest<HTMLElement>('[data-hero-wrap]');
+    const desktop = window.matchMedia('(min-width: 1024px)');
+    const trackSelector = () => (desktop.matches ? '[data-hero-wrap]' : '[data-track-mobile]');
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const nodes = new Map<string, HTMLElement>();
     stage.querySelectorAll<HTMLElement>('[data-layer]').forEach((n) => {
@@ -71,6 +72,7 @@ export default function ExplodedBowl() {
       const t = (now - t0) / 1000;
       const H = stage.offsetHeight;
       let p = 1;
+      const wrap = stage.closest<HTMLElement>(trackSelector());
       if (!reduce && wrap) {
         const r = wrap.getBoundingClientRect();
         const range = Math.max(1, r.height - window.innerHeight);

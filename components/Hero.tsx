@@ -1,10 +1,19 @@
 import ExplodedBowl from './ExplodedBowl';
 import { SITE } from '@/lib/config';
 
+/**
+ * Scroll tracks (read by ExplodedBowl):
+ *  - desktop (lg+): the whole hero is a 260vh track with a sticky 100vh frame.
+ *  - mobile: the text scrolls normally, then the bowl column is its own track
+ *    and pins on screen, so the bowl is seen assembled before it separates.
+ */
 export default function Hero() {
   return (
-    <section data-hero-wrap className="relative h-[260vh] bg-linen motion-reduce:h-auto">
-      <div className="sticky top-0 flex min-h-screen flex-col overflow-hidden">
+    <section
+      data-hero-wrap
+      className="relative bg-linen lg:h-[260vh] motion-reduce:lg:h-auto"
+    >
+      <div className="flex flex-col lg:sticky lg:top-0 lg:min-h-screen lg:overflow-hidden">
         <nav className="relative z-10 mx-auto flex w-full max-w-[1240px] items-center justify-between gap-4 px-[clamp(20px,5vw,56px)] py-5">
           <div className="text-[28px] font-extrabold tracking-[-0.03em]">
             Leafy <span className="accent">Bowl</span>
@@ -48,9 +57,17 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="flex flex-[1_1_380px] flex-col items-center gap-3">
-            <ExplodedBowl />
-            <div className="eyebrow !tracking-[0.12em] motion-reduce:hidden">Scroll to pull apart ↓</div>
+          {/* Mobile scroll track for the bowl; a no-op wrapper on desktop */}
+          <div
+            data-track-mobile
+            className="relative flex-[1_1_380px] h-[220vh] lg:h-auto motion-reduce:h-auto"
+          >
+            <div className="sticky top-4 flex flex-col items-center gap-3 lg:static">
+              <ExplodedBowl />
+              <div className="eyebrow !tracking-[0.12em] motion-reduce:hidden">
+                Scroll to pull apart ↓
+              </div>
+            </div>
           </div>
         </div>
       </div>
