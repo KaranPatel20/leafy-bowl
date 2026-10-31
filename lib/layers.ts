@@ -21,7 +21,7 @@ export type Layer = {
 
 export const LAYERS: Layer[] = [
   { id: 'peanuts',  label: 'Roasted peanuts',     src: '/layers/01-peanuts.png',  w: 40, ar: 2.676, rest: 61, open: 5,  color: '#C9925A' },
-  { id: 'greens',   label: 'Fresh greens',        src: '/layers/02-greens.png',   w: 64, ar: 2.241, rest: 62, open: 16, color: '#6FA25A' },
+  { id: 'greens',   label: 'Fresh greens',        src: '/layers/02-greens.png',   w: 58, ar: 1.801, rest: 62, open: 16, color: '#6FA25A' },
   { id: 'cucumber', label: 'Cucumber slices',     src: '/layers/03-cucumber.png', w: 50, ar: 1.805, rest: 63, open: 27, color: '#8DB56B' },
   { id: 'pepper',   label: 'Bell pepper strips',  src: '/layers/04-pepper.png',   w: 52, ar: 2.242, rest: 64, open: 37, color: '#D0452F' },
   { id: 'tomato',   label: 'Tomato',              src: '/layers/05-tomato.png',   w: 52, ar: 1.969, rest: 65, open: 47, color: '#E2603F' },
